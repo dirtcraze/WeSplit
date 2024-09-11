@@ -41,7 +41,7 @@ struct ContentView: View {
                         ForEach(tipPercentages, id: \.self) {
                             Text($0, format: .percent)
                         }
-                    }.pickerStyle(.segmented)
+                    }.pickerStyle(.segmented).disabled(true)
                 }
                 Section("Amount per person") {
                     Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
