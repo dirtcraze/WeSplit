@@ -41,13 +41,14 @@ struct ContentView: View {
                         ForEach(tipPercentages, id: \.self) {
                             Text($0, format: .percent)
                         }
-                    }.pickerStyle(.segmented).disabled(true)
+                    }.pickerStyle(.segmented)
                 }
                 Section("Amount per person") {
                     Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                 }
                 Section("Total amount") {
                     Text(totalAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                        .foregroundStyle(tipPercentage == 0 ? .red : .black)
                 }
             }
             .navigationTitle("WeSplit")
